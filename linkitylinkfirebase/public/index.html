@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- METDATA -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property='og:title' content="Linkity Link">
+    <meta property='og:description' content= 'Link your links!'>
+    <meta property="og:url" content="https://linkity.link/" >
+    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/linkitylinkalpha.appspot.com/o/lazy.png?alt=media&token=28e55441-4be4-4c23-b403-e88118be4082">
+    <meta property="og:type" content="website" >
+    <meta name="description" content="Link your links!">
+
+    <!-- Advertisements go here? -->
+
+    <!--
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4894374210820323",
+        enable_page_level_ads: true
+      });
+    </script> -->
+
+    <title>Linkity Link β</title>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDZ5QpUv-yKpnDEvf2dgrPi3vEegzJVhOQ",
+        authDomain: "linkitylinkalpha.firebaseapp.com",
+        databaseURL: "https://linkitylinkalpha.firebaseio.com",
+        projectId: "linkitylinkalpha",
+        storageBucket: "linkitylinkalpha.appspot.com",
+        messagingSenderId: "603981229696"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.2.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.2.0/firebase-auth.js"></script>
+    <!-- script defer src="/__/firebase/5.2.0/firebase-database.js"></script -->
+    <script defer src="/__/firebase/5.2.0/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Default Style -->
+    <!-- <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style> -->
+
+
+  </head>
+  <body>
+  
+  <style>body {background: lightblue;} </style>
+  <!-- <style>div { display: inline;background:linear-gradient(gold, yellow);border: 5px solid gold;margin-top: 5px;padding-left: 5px;float: left;padding-right: 9px;clear: both;}</style> -->
+  <!-- <style>div { display: inline;background:linear-gradient(yellow, gold);border: 5px solid gold;margin-top: 5px;padding-left: 5px;float: left;padding-right: 9px;clear: both;}</style>-->
+  <style>h1 { display: block;color: green;}</style>
+  <style>h2 { display: block;color: red;}</style>
+  <style>h3 { display: block;color: black;}</style>
+  <style>
+  .main { 
+  display: inline;background:linear-gradient(yellow, gold);border: 5px solid gold;margin-top: 5px;padding-left: 5px;float: left;padding-right: 9px;clear: both;
+  }
+  </style>
+  <!-- <style>body {background: linear-gradient(peachpuff, lightblue);} </style> -->
+
+  <style> a:link, a:visited {
+    color: green;
+    /*padding: 14px 25px;*/
+    display: inline-block;
+  }
+  a:hover, a:active {
+    color: blue;
+    text-decoration: none;
+  }
+  </style>
+
+ <style>input[type=text] {
+    /*width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;*/
+    background: navy;
+    color: white;
+    border-color: darkblue;
+    font-family: "Times New Roman", Times, serif;*/
+    /*font-size:24px;*/}</style>
+
+    <style> .input-group-addon{
+      /*font-family: "Times New Roman", Times, serif;*/
+      /*font-size:24px;*/
+      /*background: lightblue;*/
+    }
+    </style>
+
+    
+    <div class="container">
+      <div class="page-header" style="text-align:right">
+      Share
+      <a id='WhatsappShare' href='whatsapp://send?text=https://linkity.link'><img src="https://upload.wikimedia.org/wikipedia/commons/1/19/WhatsApp_logo-color-vertical.svg" alt="Share Link Via Whatsapp" style="width:32px;height:32px;"></a>
+      </div>
+    </div>
+
+    <div class="jumbotron text-center" >
+      <a href="/" id="mainPage"  ><h1 style="font-family: Big Caslon, Serif">Linkity Link β</h1></a>
+    </div>
+
+
+
+    <div id="main"></div>
+
+    <div class="container">
+    <div class="jumbotron text-center" >
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" ><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </div></div>
+    
+    <!-- <button id='boi'>debug</button> -->
+
+
+    <script src="linkitylink.js">
+    </script>
+  </body>
+</html>
