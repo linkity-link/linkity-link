@@ -86,7 +86,7 @@ function gatherDecentUrls(){
 		//console.log("SUCCESS");
 		//redirect
 
-		shortenedLink: shortenUrl("https://linkity.page.link/?link=https://linkity.link/"+link+"&st="+"New%20Title"+"&sd="+"Description"+"&si=https://firebasestorage.googleapis.com/v0/b/linkitylinkalpha.appspot.com/o/lazy.png?alt=media&token=28e55441-4be4-4c23-b403-e88118be4082")
+		//shortenedLink: shortenUrl("https://linkity.page.link/?link=https://linkity.link/"+link+"&st="+"New%20Title"+"&sd="+"Description"+"&si=https://firebasestorage.googleapis.com/v0/b/linkitylinkalpha.appspot.com/o/lazy.png?alt=media&token=28e55441-4be4-4c23-b403-e88118be4082")
 	  window.location = "/"+ref.id;
 	});
 }
