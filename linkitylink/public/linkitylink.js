@@ -3,8 +3,8 @@
 
 //CONFIGURATION
 var linkLimit = 15;
-//var currentURL = "http://localhost:5004";
-var currentURL = "https://linkity.link";
+var currentURL = "http://localhost:5000";
+//var currentURL = "https://linkity.link";
 
 //Globals
 var lazyLinkVariable ="";
@@ -356,7 +356,6 @@ $('body').on('keydown', 'input', function(exp) {
     }
 });
 
-
 $('body').on('paste', 'input', function(){
 	//alert("YOU PASTED SOMETHING!");
 	var I = $(this);
@@ -376,7 +375,6 @@ $('body').on('paste', 'input', function(){
 	//console.log( prev +":::"+ current );
 	//procede(linkText, Number(num) );
 });
-
 
 //Firebase
 $(document).ready(function(){
@@ -441,7 +439,17 @@ document.addEventListener("DOMContentLoaded", event=>{
 
 	const db = firebase.firestore();
 
+
+	console.log("Using relative path")
+	console.log(location.pathname);
 	const id = location.pathname.substring(1);
+
+	/*
+	console.log("Using URL param")
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const id = urlParams.get('link')
+	console.log(id);*/
 
 	//linkConfigs();
 	
@@ -595,7 +603,6 @@ document.addEventListener("DOMContentLoaded", event=>{
 
 	}
 	
-
 	//document.write("We're cool");
 
 	//document.write();
