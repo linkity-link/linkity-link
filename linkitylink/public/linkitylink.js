@@ -3,8 +3,8 @@
 
 //CONFIGURATION
 var linkLimit = 15;
-var currentURL = "http://localhost:5000";
-//var currentURL = "https://linkity.link";
+//var currentURL = "http://localhost:5000";
+var currentURL = "https://linkity.link";
 
 //Globals
 var lazyLinkVariable ="";
