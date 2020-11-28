@@ -283,7 +283,7 @@ $(function() {
     markErrorRoutine = markAsErroneous;
 
     function unMarkError(){
-		$(targetId).css({"background-color":"darkblue","border-color":"darkblue"});
+		$(targetId).css({"background-color":"red","border-color":"red"});
     }
     unMarkErrorRoutine = unMarkError;
 
