@@ -8,9 +8,18 @@
       "**/node_modules/**"
     ],
 
-    "rewrites": [ {
-    "source": "**",
-    "destination": "/index.html"
-  	} ]
+    "rewrites": [ 
+      //Demos
+      //LDP
+      {
+        "source": "/demo/LDP",
+        "destination": "demos/LDP/index.html"
+      },
+      //Otherwise
+      {
+      "source": "**",
+      "destination": "/index.html"
+      }
+    ]
   }
 }
