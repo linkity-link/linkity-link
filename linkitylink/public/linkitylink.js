@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", event=>{
 	const db = firebase.firestore();
 
 
-	console.log("Using relative path")
+	console.log("Using relative path");
 	console.log(location.pathname);
 	const id = location.pathname.substring(1);
 
