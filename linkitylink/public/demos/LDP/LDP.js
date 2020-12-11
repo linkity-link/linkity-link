@@ -1,7 +1,7 @@
 //Linear Differntial Privacy Demo!
 
 //IMPORTS
-import {UserData} from './UserData.js';
+import {UserData, UserDataReader} from './UserData.js';
 import {Privatizer} from './Privatizer.js';
 import {Histogram} from './Histogram.js';
 import {Simulator} from './Simulator.js';
@@ -11,5 +11,12 @@ import {Simulator} from './Simulator.js';
 document.addEventListener("DOMContentLoaded", event=>{
 
 	console.log("Loaded page!");
+	//console.log(UserDataReader(1000))
 
 });
+
+//When table uploaded:
+
+document.getElementById('fileupload').onchange = function(){
+   UserDataReader(this,10);
+}
