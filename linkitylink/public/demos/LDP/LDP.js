@@ -6,6 +6,7 @@ import {Privatizer} from './Privatizer.js';
 import {Histogram} from './Histogram.js';
 import {Simulator} from './Simulator.js';
 
+//var H1 = new Histogram(...);
 
 //Run when demo loads:
 document.addEventListener("DOMContentLoaded", event=>{
