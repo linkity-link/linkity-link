@@ -8,6 +8,7 @@ function Histogram(target, name, start, bincount, binsize) {
 
   this.samples = [];
   this.bins = [];
+  this.counts = [];
 
   for(var i=0;i < bincount;i++){
   	var t = start + i*binsize;
@@ -46,6 +47,7 @@ function Histogram(target, name, start, bincount, binsize) {
   this.send = function(X){
   	//console.log("Should be updating");
   	this.samples.push(X);
+  	this.counts
   	//console.log(this.getBin(X));
   	this.Hist.data.datasets[0]["data"][this.getBin(X)] += 1;
   	//Split into bins of 10s and update accordingly
