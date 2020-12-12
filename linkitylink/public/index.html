@@ -98,7 +98,7 @@
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;*/
-    background: navy;
+    background: darkblue;
     color: white;
     border-color: darkblue;
     font-family: "Calibri", Times, serif;*/
@@ -117,7 +117,8 @@
       Share
       <a id='WhatsappShare' href='whatsapp://send?text=https://linkity.link'><img src="https://cdn.iconscout.com/icon/free/png-64/whatsapp-156-734843.png" alt="Share Link Via Whatsapp" style="width:32px;height:32px;"></a>
         Copy
-      <a id='CopyLink' href='whatsapp://send?text=https://linkity.link'><img src="https://www.inventicons.com/uploads/iconset/1703/wm/512/Copy-Link-60.png" alt="Copy Link" style="width:32px;height:32px;"></a>
+        <input type="text" value="linkitylinkalpha.web.app" id="CopyLink" style="background-color:lightblue; border-color:none;">
+            <button onclick="copyLink()" style="background-color: transparent; border: none"><img src="https://www.inventicons.com/uploads/iconset/1703/wm/512/Copy-Link-60.png" alt="Copy Link" style="width:32px;height:32px;"></button>
       </div>
     </div>
 
@@ -137,5 +138,14 @@
     
     <!-- <button id='boi'>debug</button> -->
     <script src="linkitylink.js"></script>
+      
+    <script>
+      function copyLink() {
+          var copiedText = document.getElementById("CopyLink");
+          copiedText.select();
+          document.execCommand("copy");
+          alert("done");
+      }
+      </script>
   </body>
 </html>
