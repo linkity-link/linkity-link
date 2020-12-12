@@ -64,7 +64,7 @@ function getAgeData(data, maxsize){
     console.log("Pass minAge, maxAge? or just hard-code it?")
 
     //console.log(ageArray);
-    return ageArray;
+    //return {"ages": ageArray, "minAge": minAge, "maxAge": maxAge};
 
     //REST OF THE CODE GOES IN Simulation.js
     //Privatize Array
