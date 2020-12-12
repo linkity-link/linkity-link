@@ -15,8 +15,9 @@ document.addEventListener("DOMContentLoaded", event=>{
 
 	console.log("Loaded page!");
 	//console.log(UserDataReader(1000))
-	H1.send(1);
-
+	/*H1.send(10);
+	H1.send(20);
+	H1.send(40);*/
 });
 
 //When table uploaded:

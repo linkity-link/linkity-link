@@ -21,7 +21,7 @@ function Histogram(target, name, start, bincount, binsize) {
   	labels:this.bins,
   	datasets:[{
   		label:"Count",
-  		data: new Array(bincount).fill(1)
+  		data: new Array(bincount).fill(0)
   	}]
   }
 
@@ -39,10 +39,14 @@ function Histogram(target, name, start, bincount, binsize) {
     });
   //this.bins = [];
 
+  this.getBin = function(X){
+  	return (X-start)/bincount;
+  }
+
   this.send = function(X){
-  	console.log("Should be updating");
-  	//samples.push(X);
-  	this.Hist.data.datasets[0]["data"][0] += 1;
+  	//console.log("Should be updating");
+  	samples.push(X);
+  	this.Hist.data.datasets[0]["data"][this.getBin(X)] += 1;
   	//Split into bins of 10s and update accordingly
   	this.Hist.update();
   }
