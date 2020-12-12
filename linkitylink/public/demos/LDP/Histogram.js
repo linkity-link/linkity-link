@@ -1,12 +1,54 @@
-function Histogram() {
-  this.samples = []
+function Histogram(target, name, start, bincount, binsize) {
+  
+  this.target = document.getElementById(target).getContext('2d');
+  this.name = name;
+  this.start = start;
+  this.bincount = bincount;
+  this.binsize = binsize;
+
+  this.samples = [];
+  this.bins = [];
+
+  for(var i=0;i < bincount;i++){
+  	var t = start + i*binsize;
+  	var t2 = t + binsize - 1;
+
+  	if (i != bincount-1) this.bins.push(String(t)+"-"+String(t2));
+  	else this.bins.push(String(t)+"+");
+  }
+
+  this.data = {
+  	labels:this.bins,
+  	datasets:[{
+  		label:"Count",
+  		data: new Array(bincount).fill(1)
+  	}]
+  }
+
+  //console.log(this.data)
+
+  this.Hist = new Chart(this.target, {
+    type: 'bar',
+    data: this.data,
+    options: {
+    	title:{
+    		display:true,
+    		text:this.name
+    	}
+    }
+    });
+  //this.bins = [];
 
   this.send = function(X){
-  	samples.push(X)
+  	console.log("Should be updating");
+  	//samples.push(X);
+  	this.Hist.data.datasets[0]["data"][0] += 1;
+  	//Split into bins of 10s and update accordingly
+  	this.Hist.update();
   }
 
   this.peek= function(X){
-  	console.log(samples)
+  	console.log(samples);
   }
 };
 
