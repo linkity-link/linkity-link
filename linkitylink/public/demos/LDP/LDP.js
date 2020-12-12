@@ -2,7 +2,7 @@
 
 //IMPORTS
 import {UserData, UserDataReader} from './UserData.js';
-import {Privatize} from './Privatizer.js';
+import {Privatize, randomInt} from './Privatizer.js';
 import {Histogram} from './Histogram.js';
 import {Simulator} from './Simulator.js';
 
@@ -15,14 +15,23 @@ document.addEventListener("DOMContentLoaded", event=>{
 
 	console.log("Loaded page!");
 	//console.log(UserDataReader(1000))
-	H2.send(50);
-	H1.send(Privatize(50));
-	H2.send(50);
-	H1.send(Privatize(50));
-	H2.send(50);
-	H1.send(Privatize(50));
 	//console.log(H1.peek());
 	//console.log(H2.peek());
+
+	
+	var animation = setInterval(myTimer, 10);
+	var ticks = 0;
+	var duration = 100;
+
+	function myTimer() {
+	  var T = randomInt(10,101);
+	  H1.send(Privatize(T));
+	  H2.send(T);
+	  ticks += 1;
+
+	  if (ticks >= duration) clearInterval(animation);
+	}
+
 });
 
 //When table uploaded:
