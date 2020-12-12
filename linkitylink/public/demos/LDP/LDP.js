@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", event=>{
 	H1.send(Privatize(50));
 	H2.send(50);
 	H1.send(Privatize(50));
-	console.log(H1.peek());
-	console.log(H2.peek());
+	//console.log(H1.peek());
+	//console.log(H2.peek());
 });
 
 //When table uploaded:
