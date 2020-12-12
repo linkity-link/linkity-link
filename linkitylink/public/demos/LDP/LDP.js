@@ -2,7 +2,7 @@
 
 //IMPORTS
 import {UserData, UserDataReader} from './UserData.js';
-import {Privatizer} from './Privatizer.js';
+import {Privatize} from './Privatizer.js';
 import {Histogram} from './Histogram.js';
 import {Simulator} from './Simulator.js';
 
@@ -15,9 +15,14 @@ document.addEventListener("DOMContentLoaded", event=>{
 
 	console.log("Loaded page!");
 	//console.log(UserDataReader(1000))
-	/*H1.send(10);
-	H1.send(20);
-	H1.send(40);*/
+	H2.send(50);
+	H1.send(Privatize(50));
+	H2.send(50);
+	H1.send(Privatize(50));
+	H2.send(50);
+	H1.send(Privatize(50));
+	console.log(H1.peek());
+	console.log(H2.peek());
 });
 
 //When table uploaded:

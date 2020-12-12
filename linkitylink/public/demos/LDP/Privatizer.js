@@ -1,5 +1,5 @@
 
-function Privatizer(obj) {
+function Privatize(obj) {
 	//Privatize!
 	var v = randomInt(10, 100) //minimum age of our user data is 10, maximum age is 100
 	var p = randomInt(0, 100)  //probability
@@ -20,4 +20,4 @@ function randomInt(low, high) {
 
 
 
-export{ Privatizer };
+export{ Privatize };
