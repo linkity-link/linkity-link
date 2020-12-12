@@ -34,11 +34,30 @@ function getData(data, maxsize){
 
     tableData = tableData.subarray(1,cut)
 
-    TODO: FIND INDEX OF "AGE" IN THE FIRST ROW
+    //TODO: FIND INDEX OF "AGE" IN THE FIRST ROW
 
-    TODO: Make UserData ON EVERY ["AGE"] in tableData, and collect into an Array
+    var indexOfAge = 0;
+    var i;
+    for(i = 0; i < tableData[0].length; i++) {
+        if(tableData[0][i] == "Age") {
+            indexOfAge = i;
+        }
+    }
 
-    return Array
+    //TODO: Make UserData ON EVERY ["AGE"] in tableData, and collect into an Array
+
+    var ageArray = [];
+    var j;
+    for(j = 1; j < tableData.length; j++) {
+        ageArray.push(tableData[j][indexOfAge]);
+    }
+
+    //finding min and max in ageArray
+    
+    var minAge = Math.min.apply(Math, ageArray);
+    var maxAge = Math.max.apply(Math, ageArray);
+
+    return ageArray;
 
     //REST OF THE CODE GOES IN Simulation.js
     //Privatize Array
