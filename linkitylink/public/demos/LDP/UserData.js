@@ -12,13 +12,14 @@ function UserDataReader(input, maxsize) {
     reader.readAsBinaryString(input.files[0]);
     reader.onload = function (e) {
         //console.log(e.target.result, maxsize)
-        getData(e.target.result, maxsize)           
+        //getData(e.target.result, maxsize);
+        getAgeData(e.target.result, maxsize);
     }  
     }
 }
  
-function getData(data, maxsize){
-    console.log("Ignoring maxsize for now")
+function getAgeData(data, maxsize){
+    //console.log("Ignoring maxsize for now")
     let tableData = [];
     let lbreak = data.split("\n");
     //console.log(lbreak.length)
@@ -30,10 +31,6 @@ function getData(data, maxsize){
     //console.table(tableData);
     //console.log(tableData.length)
 
-    cut = Math.max(maxsize, tableData.length)
-
-    tableData = tableData.subarray(1,cut)
-
     //TODO: FIND INDEX OF "AGE" IN THE FIRST ROW
 
     var indexOfAge = 0;
@@ -44,12 +41,19 @@ function getData(data, maxsize){
         }
     }
 
+    var cut = Math.min(maxsize + 1, tableData.length);
+
+    tableData = tableData.slice(1,cut);
+
     //TODO: Make UserData ON EVERY ["AGE"] in tableData, and collect into an Array
+    //console.table(tableData);
 
     var ageArray = [];
     var j;
-    for(j = 1; j < tableData.length; j++) {
-        ageArray.push(tableData[j][indexOfAge]);
+    for(j = 0; j < cut-1; j++) {
+        //console.log(tableData[j]);
+        //convert to number
+        ageArray.push(Number(tableData[j][indexOfAge]));
     }
 
     //finding min and max in ageArray
@@ -57,6 +61,9 @@ function getData(data, maxsize){
     var minAge = Math.min.apply(Math, ageArray);
     var maxAge = Math.max.apply(Math, ageArray);
 
+    console.log("Pass minAge, maxAge? or just hard-code it?")
+
+    //console.log(ageArray);
     return ageArray;
 
     //REST OF THE CODE GOES IN Simulation.js
