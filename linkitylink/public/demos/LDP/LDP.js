@@ -17,16 +17,16 @@ document.addEventListener("DOMContentLoaded", event=>{
 	//console.log(UserDataReader(1000))
 	//console.log(H1.peek());
 	//console.log(H2.peek());
-
 	
-	
-	var ticks = 0;
-	var duration = 100;
+	//automatic
 
-	/*var animation = setInterval(myTimer, 1);
+	/*var ticks = 0;
+	var duration = 10000;
+
+	var animation = setInterval(myTimer, 10);
 
 	function myTimer() {
-	  var T = randomInt(10,101);
+	  var T = randomInt(1,11)*10;
 	  H1.send(Privatize(T));
 	  H2.send(T);
 	  ticks += 1;
@@ -34,21 +34,31 @@ document.addEventListener("DOMContentLoaded", event=>{
 	  if (ticks >= duration){
 	  	clearInterval(animation);
 	  	H1.RemoveBias();
+	  	//console.log(H1.peek());
+		//console.log(H2.peek());
 	  }
 	}*/
 
-	for(ticks=0;ticks<duration;ticks++){
-		var T = randomInt(10,101);
+	/*for(ticks=0;ticks<duration;ticks++){
+		//var T = randomInt(10,101);
+		var T = randomInt(1,11)*10;
 		H1.send(Privatize(T));
 		H2.send(T);
 	}
-	H1.RemoveBias(false);
-
+	H1.RemoveBias();*/
+	//H1.RemoveBias(false);
 
 });
 
 //When table uploaded:
 
 document.getElementById('fileupload').onchange = function(){
-   UserDataReader(this,10);
+   let SIM = new Simulator(this,10000,1,H1,H2);
+
+   var animation = setInterval(simUpdate, 10);
+
+	function simUpdate() {
+	  SIM.update();
+	}
+
 }
