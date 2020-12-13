@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", event=>{
 		H1.send(Privatize(T));
 		H2.send(T);
 	}
-	H1.RemoveBias(false);
+	H1.RemoveBias();
+	//H1.RemoveBias(false);
 
 
 });
