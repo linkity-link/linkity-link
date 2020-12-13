@@ -41,10 +41,15 @@ function Histogram(target, name, start, bincount, binsize) {
     options: {
     	title:{
     		display:true,
-    		text:this.name,
-    		responsive:true,
-    		maintainAspectRatio: false
-    	}
+    		text:this.name
+    	},
+    	scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
     }
     });
   //this.bins = [];
@@ -67,19 +72,20 @@ function Histogram(target, name, start, bincount, binsize) {
   	let n = this.samples.length;
   	//constant
   	//let p = 0.05; //5%
-  	//let q = 0.011; //approx. 1/90 or 1/91
+  	//let q = (1-p)*/91; //approx. 1/90 or 1/91
   	let p = 20/100; //20%
-  	let q = 1/9; //1/9
+  	let q = (1-p)/9; //1/9
 
   	var norm = p-q;
   	var bias = n*q;
 
-  	//console.log(n, bias, norm);
+  	console.log(n, bias, norm);
 
   	if(useBinSums){
-  		for(var i=0;i<bincount-1;i++){
-  		this.Hist.data.datasets[0]["data"][i] -= bias;
-  		this.Hist.data.datasets[0]["data"][i] /= norm;
+  		//for(var i=0;i<bincount-1;i++){
+  		for(var i=0;i<bincount;i++){
+  			this.Hist.data.datasets[0]["data"][i] -= bias;
+  			this.Hist.data.datasets[0]["data"][i] /= norm;
 	  	}
   	}
 
@@ -107,7 +113,7 @@ function Histogram(target, name, start, bincount, binsize) {
 
   this.peek= function(X){
   	console.log(this.samples);
-  	console.table(this.Hist.data.datasets[0]["data"]);
+  	//console.table(this.Hist.data.datasets[0]["data"]);
   }
 };
 

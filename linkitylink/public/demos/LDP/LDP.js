@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", event=>{
 	
 	
 	var ticks = 0;
-	var duration = 100;
+	var duration = 10000;
 
-	/*var animation = setInterval(myTimer, 1);
+	var animation = setInterval(myTimer, 10);
 
 	function myTimer() {
-	  var T = randomInt(10,101);
+	  var T = randomInt(1,11)*10;
 	  H1.send(Privatize(T));
 	  H2.send(T);
 	  ticks += 1;
@@ -34,18 +34,19 @@ document.addEventListener("DOMContentLoaded", event=>{
 	  if (ticks >= duration){
 	  	clearInterval(animation);
 	  	H1.RemoveBias();
+	  	console.log(H1.peek());
+		console.log(H2.peek());
 	  }
-	}*/
+	}
 
-	for(ticks=0;ticks<duration;ticks++){
+	/*for(ticks=0;ticks<duration;ticks++){
 		//var T = randomInt(10,101);
 		var T = randomInt(1,11)*10;
 		H1.send(Privatize(T));
 		H2.send(T);
 	}
-	H1.RemoveBias();
+	H1.RemoveBias();*/
 	//H1.RemoveBias(false);
-
 
 });
 
