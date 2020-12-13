@@ -49,11 +49,15 @@ function getAgeData(data, maxsize){
     //console.table(tableData);
 
     var ageArray = [];
+    var ageTensDigit = 0;
+    var newAge = 0;
     var j;
     for(j = 0; j < cut-1; j++) {
         //console.log(tableData[j]);
         //convert to number
-        ageArray.push(Number(tableData[j][indexOfAge]));
+        ageTensDigit = parseInt((Number(tableData[j][indexOfAge]))/10);
+        newAge = ageTensDigit * 10;
+        ageArray.push(newAge);
     }
 
     //finding min and max in ageArray
