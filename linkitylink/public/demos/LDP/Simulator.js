@@ -27,23 +27,22 @@ function Simulator(input,limit, repeat,H1,H2) {
   	this.samples = X;
   }
 
+  this.i = 0;
+  this.j = 0;
+
   this.update = function(X){
-
-  	TODO FIX HERE
-
   	//TODO: Replace T with the next sample from this.samples
   	//var T = randomInt(1,11)*10;
-	H1.send(Privatize(T));
-	H2.send(T);
-  	
-
-	if (ticks == duration){
+	if (this.i == this.limit){
 	  	//remove bias when done
 	  	H1.RemoveBias();
-	  	this.ticks += 1;
+	  	this.i += 1;
 	}
-	else if (ticks < duration){
-		this.ticks+=1;
+	else if (this.i < this.limit){
+		var T=this.samples[this.i];
+		H1.send(Privatize(T));
+		H2.send(T);
+		this.i+=1;
 	}
 
   }
