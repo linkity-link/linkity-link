@@ -21,8 +21,8 @@ function Histogram(target, name, start, bincount, binsize) {
   	//Can't own colors, but credit is due where it is due
   	//https://blog.vanila.io/chart-js-tutorial-how-to-make-gradient-line-chart-af145e5c92f9
 	var gradientStroke = this.target.createLinearGradient(500, 0, 100, 0);
-	gradientStroke.addColorStop(0, "#80b6f4");
-	gradientStroke.addColorStop(1, "#f49080");
+	gradientStroke.addColorStop(0, "#80f4b6");
+	gradientStroke.addColorStop(1, "#f48090");
 
   this.data = {
   	labels:this.bins,
@@ -61,11 +61,13 @@ function Histogram(target, name, start, bincount, binsize) {
   	this.Hist.update();
   }
 
-  this.RemoveBias = function(useBinSums=false){
+  this.RemoveBias = function(useBinSums=true){
   	let n = this.samples.length;
   	//constant
-  	let p = 0.05; //5%
-  	let q = 0.011; //approx. 1/90 or 1/91
+  	//let p = 0.05; //5%
+  	//let q = 0.011; //approx. 1/90 or 1/91
+  	let p = 5/100;
+  	let q = 1/9;
 
   	var norm = p-q;
   	var bias = n*q;
