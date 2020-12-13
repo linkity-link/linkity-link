@@ -34,9 +34,16 @@ function Simulator(input,limit, repeat,H1,H2) {
   	//TODO: Replace T with the next sample from this.samples
   	//var T = randomInt(1,11)*10;
 	if (this.i == this.limit){
-	  	//remove bias when done
-	  	H1.RemoveBias();
-	  	this.i += 1;
+
+	  	if (this.j < this.repeat){
+	  		this.j+=1;
+	  		this.i=0;
+	  	}
+	  	else{
+	  		this.i += 1;
+	  		//remove bias when done
+	  		H1.RemoveBias();
+	  	}
 	}
 	else if (this.i < this.limit){
 		var T=this.samples[this.i];
@@ -47,7 +54,7 @@ function Simulator(input,limit, repeat,H1,H2) {
 
   }
 
-   this.UDR = new UserDataReader(input,1000,this);
+   this.UDR = new UserDataReader(this.input,this.limit,this);
    /*UDR.onload = function (e) {
    	console.log("LOADED UDR");
    }*/

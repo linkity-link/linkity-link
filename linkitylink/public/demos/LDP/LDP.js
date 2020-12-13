@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", event=>{
 //When table uploaded:
 
 document.getElementById('fileupload').onchange = function(){
-   let SIM = new Simulator(this,1000,10,H1,H2);
+   let SIM = new Simulator(this,10000,1,H1,H2);
 
    var animation = setInterval(simUpdate, 10);
 
