@@ -13,7 +13,7 @@
       //LDP
       {
         "source": "/demo/LDP",
-        "destination": "demos/LDP/index.html"
+        "destination": "/demos/LDP/index.html"
       },
       //Otherwise
       {
