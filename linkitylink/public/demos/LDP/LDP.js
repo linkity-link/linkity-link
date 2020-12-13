@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", event=>{
 	}*/
 
 	for(ticks=0;ticks<duration;ticks++){
-		var T = randomInt(10,101);
+		//var T = randomInt(10,101);
+		var T = randomInt(1,11)*10;
 		H1.send(Privatize(T));
 		H2.send(T);
 	}

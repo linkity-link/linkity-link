@@ -68,8 +68,8 @@ function Histogram(target, name, start, bincount, binsize) {
   	//constant
   	//let p = 0.05; //5%
   	//let q = 0.011; //approx. 1/90 or 1/91
-  	let p = 5/100;
-  	let q = 1/9;
+  	let p = 20/100; //20%
+  	let q = 1/9; //1/9
 
   	var norm = p-q;
   	var bias = n*q;
