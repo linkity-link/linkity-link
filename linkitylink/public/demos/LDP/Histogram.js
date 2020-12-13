@@ -42,6 +42,8 @@ function Histogram(target, name, start, bincount, binsize) {
     	title:{
     		display:true,
     		text:this.name,
+    		responsive:true,
+    		maintainAspectRatio: false
     	}
     }
     });
