@@ -4,7 +4,7 @@ function Privatize(obj) {
 	
 	var p = randomInt(0, 101);  //probability
 	
-	if(p<20){ //with probability less then or equal to %20 we say the truth
+	if(p<50){ //with probability less then or equal to %20 we say the truth
 		return obj;
 	}else{ //we transform the truth to a random value
 

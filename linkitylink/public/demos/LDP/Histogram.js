@@ -72,8 +72,8 @@ function Histogram(target, name, start, bincount, binsize) {
   	let n = this.samples.length;
   	//constant
   	//let p = 0.05; //5%
-  	//let q = (1-p)*/91; //approx. 1/90 or 1/91
-  	let p = 20/100; //20%
+  	//let q = (1-p)*/90;
+  	let p = 50/100; //50%
   	let q = (1-p)/9; //1/9
 
   	var norm = p-q;
