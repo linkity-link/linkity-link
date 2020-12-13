@@ -8,7 +8,7 @@ function Histogram(target, name, start, bincount, binsize) {
 
   this.samples = [];
   this.bins = [];
-  this.counts = [];
+  this.counts = new Array(bincount*binsize).fill(0);
 
   for(var i=0;i < bincount;i++){
   	var t = start + i*binsize;
@@ -18,11 +18,18 @@ function Histogram(target, name, start, bincount, binsize) {
   	else this.bins.push(String(t)+"+");
   }
 
+  	//Can't own colors, but credit is due where it is due
+  	//https://blog.vanila.io/chart-js-tutorial-how-to-make-gradient-line-chart-af145e5c92f9
+	var gradientStroke = this.target.createLinearGradient(500, 0, 100, 0);
+	gradientStroke.addColorStop(0, "#80b6f4");
+	gradientStroke.addColorStop(1, "#f49080");
+
   this.data = {
   	labels:this.bins,
   	datasets:[{
   		label:"Count",
-  		data: new Array(bincount).fill(0)
+  		data: new Array(bincount).fill(0),
+  		backgroundColor: gradientStroke
   	}]
   }
 
@@ -34,7 +41,7 @@ function Histogram(target, name, start, bincount, binsize) {
     options: {
     	title:{
     		display:true,
-    		text:this.name
+    		text:this.name,
     	}
     }
     });
@@ -47,9 +54,49 @@ function Histogram(target, name, start, bincount, binsize) {
   this.send = function(X){
   	//console.log("Should be updating");
   	this.samples.push(X);
-  	this.counts
+  	this.counts[X-this.start]+=1;
   	//console.log(this.getBin(X));
   	this.Hist.data.datasets[0]["data"][this.getBin(X)] += 1;
+  	//Split into bins of 10s and update accordingly
+  	this.Hist.update();
+  }
+
+  this.RemoveBias = function(useBinSums=false){
+  	let n = this.samples.length;
+  	//constant
+  	let p = 0.05; //5%
+  	let q = 0.011; //approx. 1/90 or 1/91
+
+  	var norm = p-q;
+  	var bias = n*q;
+
+  	//console.log(n, bias, norm);
+
+  	if(useBinSums){
+  		for(var i=0;i<bincount-1;i++){
+  		this.Hist.data.datasets[0]["data"][i] -= bias;
+  		this.Hist.data.datasets[0]["data"][i] /= norm;
+	  	}
+  	}
+
+  	else{
+  		for(var i=0;i<bincount-1;i++){
+		//this.Hist.data.datasets[0]["data"][i] -= bias;
+		//this.Hist.data.datasets[0]["data"][i] /= norm;
+		this.Hist.data.datasets[0]["data"][i] = 0;
+		}
+
+	  	let hardlimit=Math.min(100-start+1+1,bincount*binsize);
+
+	  	for(var i=start;i<hardlimit;i++){
+	  		var X = i-start;
+	  		//console.log(i,this.counts[X],bias,norm);
+	  		this.Hist.data.datasets[0]["data"][this.getBin(i)] += (this.counts[X]-bias)/norm;
+	  	}
+
+  	}
+
+
   	//Split into bins of 10s and update accordingly
   	this.Hist.update();
   }
