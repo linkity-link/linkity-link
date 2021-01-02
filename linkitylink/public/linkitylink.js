@@ -35,10 +35,13 @@ function gatherDecentUrls(){
 	//console.log("Title:"+document.getElementById("title").value);
 	ourTitle = document.getElementById("title").value;
 
+
+	//Rule 1
 	if(ourTitle===""){
 		alert("Hey! Make sure you add a title!");
 		return 0;
 	}
+	//Rule 2
 	if(ourTitle.length > 100){
 		alert("Hey! That title's too long!");
 		return 0;
@@ -48,15 +51,21 @@ function gatherDecentUrls(){
 		//console.log(i+":"+document.getElementById("linkinput"+i).value);
 		console.log(document.getElementById("linkinput"+i).length);
 		if(document.getElementById("linkinput"+i).value!=="" && document.getElementById("linkinput"+i).value.length <= 2000){
+
+			//#NoMoreInjections
+
 			var linkData = {link:document.getElementById("linkinput"+i).value, backupmade: false};
 			//ourLinks.push(document.getElementById("linkinput"+i).value);
 			ourLinks.push(linkData);
 		}
 	}
+	//Rule 3
 	if(!ourLinks.length){
 		alert("Hey! We need at least one link for this to be worth it you know?");
 		return 0;
 	}
+
+	//Rule 4: Check against additional fields!
 
 	const db = firebase.firestore();
 	//console.log(firebase.firestore.ServerValue);
@@ -78,10 +87,14 @@ function gatherDecentUrls(){
 	
 	console.log(" USE TEH TIMESTAMP CHECK LINE 79");
 	const timestamp = firebase.firestore.FieldValue.serverTimestamp()
+
+	//#NoMoreInjections(Changed permissions to prevent injecting to DBs outside kitties)
 	var addDoc = db.collection('kitties').add({
+		//#NoMoreInjections
+		//TODO: Prevent additional information being added on clientside
 	  title: ourTitle,
-	  links: ourLinks,
-	  available: true,
+	  links: ourLinks
+	  //available: true,
 	  }).then(ref => {
 		//console.log("SUCCESS");
 		//redirect
