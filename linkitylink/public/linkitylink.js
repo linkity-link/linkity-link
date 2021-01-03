@@ -535,7 +535,7 @@ document.addEventListener("DOMContentLoaded", event=>{
 		welcomeText+="</form><div class=\"col-xs-12\"><button type=\"button\" id=\"submissionButton\" class=\"btn btn-primary\"> Submit! <!--Ansem, err I mean Xehanort would be proud wouldn't he?--> </button> \
 		</div>\
 		<p id=\"redColorChecker\" style=\"display:none;\"></p>\
-		<div class=\"jumbotron text-center\" style='background-color:lightblue;padding-top: 300px;'>\
+		<div class=\"jumbotron text-center\" style='background-color:#B4C7E7;padding-top: 300px;'>\
       		<h4 style=\"font-family: Big Caslon, Serif\">Welcome to Linkity Link. Ever needed to post several links at the same time when you had space for only one?<br>\
 			Or perhaps you're the type of person who immensely enjoys mass posting.<br>\
 			Either way we're here to help! Give us a few links and we'll give you a link that links to all of them.<br>\
