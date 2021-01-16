@@ -17,6 +17,9 @@ function Simulator(input,limit, repeat,H1,H2) {
   this.H1 = H1;
   this.H2 = H2;
 
+  //DEFINE EPS UNTIL READABLE
+  this.eps = 1.0;
+
   this.ticks = 0;
 
   this.ready = function(){
@@ -42,12 +45,19 @@ function Simulator(input,limit, repeat,H1,H2) {
 	  	else{
 	  		this.i += 1;
 	  		//remove bias when done
+
+        //MODIFY TO TAKE CUSTOM EPS
 	  		H1.RemoveBias();
 	  	}
 	}
 	else if (this.i < this.limit){
 		var T=this.samples[this.i];
-		H1.send(Privatize(T));
+
+    //Pass eps to Privatize and H1?
+
+    //MODIFY TO TAKE CUSTOM EPS
+    var clientresult=Privatize(T);
+    H1.send(clientresult);
 		H2.send(T);
 		this.i+=1;
 	}

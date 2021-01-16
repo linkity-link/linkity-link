@@ -68,7 +68,12 @@ function Histogram(target, name, start, bincount, binsize) {
   	this.Hist.update();
   }
 
+  //this.RemoveBias = function(eps,useBinSums=true){
   this.RemoveBias = function(useBinSums=true){
+    
+    //Todo: add in eps as argument
+    //Todo: compute p from eps
+
   	let n = this.samples.length;
   	//constant
   	//let p = 0.05; //5%
@@ -105,7 +110,6 @@ function Histogram(target, name, start, bincount, binsize) {
 	  	}
 
   	}
-
 
   	//Split into bins of 10s and update accordingly
   	this.Hist.update();
