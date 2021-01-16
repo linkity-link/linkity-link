@@ -18,7 +18,7 @@ function Simulator(input,limit, repeat,H1,H2) {
   this.H2 = H2;
 
   //DEFINE EPS UNTIL READABLE
-  this.eps = 1.0;
+  this.eps = 2.3026;
 
   this.ticks = 0;
 
@@ -56,7 +56,7 @@ function Simulator(input,limit, repeat,H1,H2) {
     //Pass eps to Privatize and H1?
 
     //MODIFY TO TAKE CUSTOM EPS
-    var clientresult=Privatize(T);
+    var clientresult=Privatize(this.eps,T);
     H1.send(clientresult);
 		H2.send(T);
 		this.i+=1;

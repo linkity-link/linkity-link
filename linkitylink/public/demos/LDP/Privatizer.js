@@ -1,16 +1,18 @@
 
-//function Privatize(obj,eps) {
-
-function Privatize(obj) {
+function Privatize(eps,obj) {
+//function Privatize(obj) {
 	//Privatize!
 
-	//Todo: Convert p selection to float instead of randomInt
 	//Todo: add in eps as argument
-	//Todo: compute p from eps
 
-	var p = randomInt(0, 101);  //probability
+	//var p = randomInt(0, 101);  //probability
+	var sample = Math.random(); //[0,1)
+
+	//var p = 0.5;
+	let d = 10; //?
+	var p = Math.pow(Math.e, eps)/( Math.pow(Math.e, eps) + d - 1) ;
 	
-	if(p<50){ //with probability %50 we say the truth
+	if(sample < p){ //with probability %50 we say the truth
 		return obj;
 	}else{ //we transform the truth to a random value
 
@@ -19,6 +21,7 @@ function Privatize(obj) {
 			v = randomInt(1,11)*10;
 		}
 		return v;
+
 	}
 	return obj;
 }
