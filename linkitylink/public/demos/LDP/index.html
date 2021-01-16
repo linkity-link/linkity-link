@@ -79,7 +79,13 @@
       /*background: lightblue;*/
     }
     </style>
-
+      
+      <style>
+          .selector {
+              position:absolute;
+              left: 200px;
+          }
+      </style>
     
     <div class="container">
       <div class="page-header" style="text-align:right">
@@ -107,6 +113,28 @@
 
     <div class="container">
     <input type="file" id="fileupload">
+    </div>
+      
+    <div>
+        <p></p>
+        <br>
+        <p></p>
+    </div>
+      
+    <div class="selector">
+        <form>
+            <label for="numbers">Choose a number: </label>
+            <select id="numbers" name="numbers">
+                <option value="1">0.0001</option>
+                <option value="2">0.001</option>
+                <option value="3">0.01</option>
+                <option value="4">0.1</option>
+                <option value="5">1</option>
+                <option value="6">10</option>
+                <option value="7">100</option>
+            </select>
+            <input type="submit">
+        </form>
     </div>
 
     <div class="container">
