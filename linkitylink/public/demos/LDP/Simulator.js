@@ -47,7 +47,7 @@ function Simulator(input,limit, repeat,H1,H2) {
 	  		//remove bias when done
 
         //MODIFY TO TAKE CUSTOM EPS
-	  		H1.RemoveBias();
+	  		H1.RemoveBias(this.eps);
 	  	}
 	}
 	else if (this.i < this.limit){
