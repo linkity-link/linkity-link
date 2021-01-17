@@ -10,7 +10,10 @@ function Privatize(eps,obj) {
 
 	//var p = 0.5;
 	let d = 10; //?
-	var p = Math.pow(Math.e, eps)/( Math.pow(Math.e, eps) + d - 1) ;
+	var p = Math.pow(Math.E, eps)/( Math.pow(Math.E, eps) + d - 1) ;
+
+	//console.log(eps);
+	//console.log(p);
 	
 	if(sample < p){ //with probability %50 we say the truth
 		return obj;

@@ -53,7 +53,15 @@ document.addEventListener("DOMContentLoaded", event=>{
 //When table uploaded:
 
 document.getElementById('fileupload').onchange = function(){
-   let SIM = new Simulator(this,10000,1,H1,H2);
+
+   let epsSelect = document.getElementById('eps');
+
+   console.log("RECEIVED");
+   console.log(epsSelect.value);
+
+   let eps = epsSelect.value;
+
+   let SIM = new Simulator(this,10000,1,H1,H2,eps);
 
    var animation = setInterval(simUpdate, 10);
 

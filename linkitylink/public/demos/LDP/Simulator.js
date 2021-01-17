@@ -3,7 +3,7 @@ import {UserData, UserDataReader} from './UserData.js';
 import {Privatize, randomInt} from './Privatizer.js';
 import {Histogram} from './Histogram.js';
 
-function Simulator(input,limit, repeat,H1,H2) {
+function Simulator(input,limit,repeat,H1,H2,eps) {
   
   //input file
   this.input = input;
@@ -18,7 +18,8 @@ function Simulator(input,limit, repeat,H1,H2) {
   this.H2 = H2;
 
   //DEFINE EPS UNTIL READABLE
-  this.eps = 2.3026;
+  //this.eps = 2.3026;
+  this.eps = eps;
 
   this.ticks = 0;
 
